@@ -1,4 +1,6 @@
--- This Data Exploration to find which customers did make the most order --
+-- This Data Exploration to find which customers did make the most order using join function from 2 tables --
+-- sample data use StoreData.xlsx --
+
 
 select o.customer_id, c.first_name, c.last_name, sum(i.quantity * i.unit_price) as Total_Price
 from orders as o
