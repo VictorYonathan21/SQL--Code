@@ -1,0 +1,10 @@
+-- This Data Exploration to find which customers did make the most order --
+
+select o.customer_id, c.first_name, c.last_name, sum(i.quantity * i.unit_price) as Total_Price
+from orders as o
+inner join customers as c
+on o.customer_id = c.customer_id
+inner join order_items as i
+on o.order_id = i.order_id
+group by customer_id
+order by Total_Price desc
