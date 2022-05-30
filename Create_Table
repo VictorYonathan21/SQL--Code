@@ -1,0 +1,49 @@
+-- creating the table with several columns --
+create table Customers 
+(
+customer_id varchar(50) not null,
+name varchar(50) not null,
+address varchar(50),
+birthdate date not null,
+phone_number int unsigned not null,
+city varchar(50) not null,
+primary key (customer_id)
+) engine = InnoDB;
+
+-- show table we have made --
+show tables;
+
+-- insert data to columns --
+insert into Customers(customer_id, name, address, birthdate, phone_number, city)
+values ('C0001', 'James', 'avenue street number 50', '1983-03-03', 9238592, 'Los Angeles');
+
+insert into Customers(customer_id, name, address, birthdate, phone_number, city)
+values ('C0002', 'Angel', 'sesame street 32', '1985-11-04', 2638261, 'Chicago');
+
+insert into Customers(customer_id, name, address, birthdate, phone_number, city)
+values ('C0003', 'Bram', 'broadway street 11', '1991-05-01', 5283721, 'Milwaukee');
+
+-- showing all data from customers table --
+select * from customers;
+
+-- delete data --
+delete
+from customers
+where customer_id = 'C003'
+
+-- update and add column data --
+alter table Customers
+add column Gender enum ('Male', 'Female')
+after name;
+
+update customers
+set Gender = 'Male'
+where customer_id = 'C0001'
+
+update customers
+set Gender = 'Female'
+where customer_id = 'C0002'
+
+update customers
+set Gender = 'Male'
+where customer_id = 'C0003'
